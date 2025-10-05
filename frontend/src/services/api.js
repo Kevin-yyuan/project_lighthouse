@@ -28,16 +28,20 @@ export const getProjects = async (filters = {}) => {
 /**
  * Sends a question to the chatbot API endpoint.
  * @param {string} question - The user's question.
- * @returns {Promise<string>} - A promise that resolves to the chatbot's answer.
+ * @returns {Promise<object>} - A promise that resolves to the chatbot's response object.
  */
 export const askChatbot = async (question) => {
   try {
     const response = await axios.post(`${API_BASE_URL}/ask`, {
       question: question,
     });
-    return response.data.answer || "Sorry, I couldn't get a response.";
+    // Return the full response object for enhanced chatbot features
+    return response.data;
   } catch (error) {
     console.error("Error asking chatbot:", error);
-    return "Sorry, there was an error connecting to the chatbot.";
+    return {
+      type: "text",
+      answer: "Sorry, there was an error connecting to the chatbot."
+    };
   }
 };

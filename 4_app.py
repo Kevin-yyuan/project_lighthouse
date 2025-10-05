@@ -4,7 +4,7 @@ from flask_cors import CORS
 import pandas as pd
 import numpy as np
 
-# Import the new chatbot service
+# Import the chatbot service
 from chatbot_service import ask_chatbot
 
 # --- Configuration ---
@@ -35,8 +35,12 @@ def handle_ask():
     question = data['question']
 
     try:
-        answer = ask_chatbot(question)
-        return jsonify({"answer": answer})
+        result = ask_chatbot(question)
+        # Handle both old string format and new dict format
+        if isinstance(result, dict):
+            return jsonify(result)
+        else:
+            return jsonify({"answer": result, "type": "text"})
     except Exception as e:
         print(f"An unexpected error occurred in the chatbot endpoint: {e}")
         return jsonify({"error": "An internal error occurred."}), 500
@@ -97,6 +101,17 @@ def get_projects():
 
     except Exception as e:
         print(f"GET /api/projects - An error occurred: {e}")
+        return jsonify({"error": "An internal error occurred."}), 500
+
+
+@app.route('/api/dashboard-analytics', methods=['GET'])
+def get_dashboard_analytics():
+    """API endpoint to get dashboard KPIs and analytics."""
+    try:
+        # For now, return a simple response until enhanced chatbot is fixed
+        return jsonify({"message": "Dashboard analytics endpoint - enhanced features coming soon"})
+    except Exception as e:
+        print(f"GET /api/dashboard-analytics - An error occurred: {e}")
         return jsonify({"error": "An internal error occurred."}), 500
 
 
