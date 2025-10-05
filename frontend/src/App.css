@@ -1,0 +1,23 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.App-header {
+  background-color: #ffffff;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #dee2e6;
+  margin-bottom: 2rem;
+}
+
+.App-title {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.loading-text {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #6c757d;
+  margin-top: 5rem;
+}
