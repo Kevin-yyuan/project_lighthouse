@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://127.0.0.1:5000/api';
+const API_BASE_URL = 'http://127.0.0.1:5001/api';
 
 /**
  * Fetches projects from the API with optional filters.
@@ -21,8 +21,23 @@ export const getProjects = async (filters = {}) => {
     }
   } catch (error) {
     console.error("Error fetching projects:", error);
-    // In a real app, you might want to handle this more gracefully
-    // e.g., show a notification to the user.
     return []; // Return empty array on network error
+  }
+};
+
+/**
+ * Sends a question to the chatbot API endpoint.
+ * @param {string} question - The user's question.
+ * @returns {Promise<string>} - A promise that resolves to the chatbot's answer.
+ */
+export const askChatbot = async (question) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/ask`, {
+      question: question,
+    });
+    return response.data.answer || "Sorry, I couldn't get a response.";
+  } catch (error) {
+    console.error("Error asking chatbot:", error);
+    return "Sorry, there was an error connecting to the chatbot.";
   }
 };

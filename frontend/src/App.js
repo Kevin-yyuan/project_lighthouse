@@ -4,6 +4,7 @@ import Dashboard from './components/Dashboard';
 import Filters from './components/Filters';
 import ProjectTable from './components/ProjectTable';
 import ProjectModal from './components/ProjectModal';
+import Chatbot from './components/Chatbot';
 import './App.css';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
   const [sortConfig, setSortConfig] = useState({ key: 'Budget', direction: 'descending' });
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
 
   const fetchProjects = useCallback(async (appliedFilters) => {
     setLoading(true);
@@ -94,6 +96,22 @@ function App() {
         </div>
         {isModalOpen && <ProjectModal project={selectedProject} onClose={closeModal} />}
       </main>
+      
+      {/* Chatbot Widget */}
+      <div className="chatbot-widget">
+        {!isChatbotOpen && (
+          <button 
+            className="btn btn-primary rounded-circle chatbot-toggle" 
+            onClick={() => setIsChatbotOpen(true)}
+          >
+            💬
+          </button>
+        )}
+        <Chatbot 
+          isVisible={isChatbotOpen} 
+          onClose={() => setIsChatbotOpen(false)} 
+        />
+      </div>
     </div>
   );
 }
