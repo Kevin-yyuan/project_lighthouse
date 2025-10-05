@@ -1,0 +1,7 @@
+pandas
+Faker
+scikit-learn
+Flask
+numpy
+pandera
+shap

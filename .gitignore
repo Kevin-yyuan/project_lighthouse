@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environments
+.env
+.venv
+venv/
+env/
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated data
+mock_capex_data.csv
+
+# Frontend
+frontend/node_modules
+frontend/build
+frontend/.pnp
+frontend/.pnp.js
+
+# OS-specific
+.DS_Store
