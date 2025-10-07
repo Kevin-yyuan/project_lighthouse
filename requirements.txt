@@ -8,3 +8,4 @@ shap
 Flask-Cors
 google-generativeai
 python-dotenv
+gunicorn

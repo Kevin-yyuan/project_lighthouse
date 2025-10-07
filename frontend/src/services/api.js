@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://127.0.0.1:5001/api';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://127.0.0.1:5001/api';
 
 /**
  * Fetches projects from the API with optional filters.
