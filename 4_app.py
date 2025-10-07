@@ -63,6 +63,7 @@ def get_projects():
                 p.ScheduleVariance_Days, p.BudgetVariance_CAD, p.ReturnOnCost_Percent,
                 p.ESG_Initiative, p.PreReno_Rent, p.PostReno_Rent,
                 p.RiskScore, p.PredictedRisk, p.PrimaryRiskFactor,
+                p.PredictedCost, p.PredictedDuration_Days,
                 prop.PropertyName,
                 prop.City,
                 v.VendorName as Vendor

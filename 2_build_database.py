@@ -40,7 +40,7 @@ def create_database_schema(conn):
     cursor.executescript('''
         CREATE TABLE vendors ( VendorID INTEGER PRIMARY KEY AUTOINCREMENT, VendorName TEXT NOT NULL UNIQUE );
         CREATE TABLE properties ( PropertyID INTEGER PRIMARY KEY AUTOINCREMENT, PropertyName TEXT NOT NULL, City TEXT NOT NULL, UNIQUE(PropertyName, City) );
-        CREATE TABLE projects ( ProjectID TEXT PRIMARY KEY, PropertyID INTEGER, VendorID INTEGER, ProjectType TEXT, ProjectStatus TEXT, StartDate TEXT, PlannedEndDate TEXT, ActualEndDate TEXT, Budget REAL, ActualCost REAL, ESG_Initiative TEXT, PreReno_Rent REAL, PostReno_Rent REAL, ScheduleVariance_Days INTEGER, BudgetVariance_CAD REAL, ReturnOnCost_Percent REAL, RiskScore REAL, PredictedRisk TEXT, PrimaryRiskFactor TEXT, FOREIGN KEY (PropertyID) REFERENCES properties (PropertyID), FOREIGN KEY (VendorID) REFERENCES vendors (VendorID) );
+        CREATE TABLE projects ( ProjectID TEXT PRIMARY KEY, PropertyID INTEGER, VendorID INTEGER, ProjectType TEXT, ProjectStatus TEXT, StartDate TEXT, PlannedEndDate TEXT, ActualEndDate TEXT, Budget REAL, ActualCost REAL, ESG_Initiative TEXT, PreReno_Rent REAL, PostReno_Rent REAL, ScheduleVariance_Days INTEGER, BudgetVariance_CAD REAL, ReturnOnCost_Percent REAL, RiskScore REAL, PredictedRisk TEXT, PrimaryRiskFactor TEXT, PredictedCost REAL, PredictedDuration_Days INTEGER, FOREIGN KEY (PropertyID) REFERENCES properties (PropertyID), FOREIGN KEY (VendorID) REFERENCES vendors (VendorID) );
     ''')
     print("Schema created successfully.")
 
