@@ -89,10 +89,10 @@ def run_etl(conn):
     print(f"Loaded {len(properties_df)} unique properties.")
 
     vendors_map = pd.read_sql('SELECT VendorID, VendorName FROM vendors', conn).rename(columns={'VendorName': 'Vendor'})
-    properties_map = pd.read_sql('SELECT PropertyID, PropertyName FROM properties', conn).rename(columns={'PropertyName': 'PropertyName'})
+    properties_map = pd.read_sql('SELECT PropertyID, PropertyName, City FROM properties', conn)
     
     df = df.merge(vendors_map, on='Vendor')
-    df = df.merge(properties_map, on='PropertyName')
+    df = df.merge(properties_map, on=['PropertyName', 'City'])
 
     projects_df = df[[
         'ProjectID', 'PropertyID', 'VendorID', 'ProjectType', 'ProjectStatus',
