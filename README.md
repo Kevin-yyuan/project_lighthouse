@@ -4,7 +4,9 @@ A full-stack web application that provides real-time analytics and predictive in
 
 ## Live Demo
 
-[Project Lighthouse](https://project-lighthouse-c1yvhc2oy-kevins-portfolio-web.vercel.app/)
+[Project Lighthouse](https://project-lighthouse-ruby.vercel.app/)
+
+**Note on Performance:** The backend is deployed on Render's free tier, which spins down the service after a period of inactivity. As a result, the initial load may take up to 30 seconds while the server performs a "cold start". Subsequent requests will be much faster.
 
 ## About The Project
 
