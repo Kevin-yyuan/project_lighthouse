@@ -4,7 +4,7 @@ A full-stack web application that provides real-time analytics and predictive in
 
 ## Live Demo
 
-[Project Lighthouse](https://vercel.com/kevins-portfolio-web/project-lighthouse/CEjco9UjP5MVa1t7YDzixfr4W3wX#L9-L33)
+[Project Lighthouse](https://project-lighthouse-c1yvhc2oy-kevins-portfolio-web.vercel.app/)
 
 ## About The Project
 
